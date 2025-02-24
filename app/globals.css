@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    /* Refined dark theme colors */
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
+  }
+
+  /* Slider specific styles */
+  .slider-range {
+    @apply relative flex h-5 w-full touch-none select-none items-center;
+  }
+
+  .slider-range[data-orientation="horizontal"] {
+    @apply h-5;
+  }
+
+  .slider-range[data-orientation="vertical"] {
+    @apply h-full w-5 flex-col;
+  }
+
+  /* Track styles */
+  .slider-range .slider-track {
+    @apply relative h-2 w-full grow overflow-hidden rounded-full bg-secondary;
+  }
+
+  .slider-range .slider-range {
+    @apply absolute h-full bg-primary;
+  }
+
+  /* Thumb styles */
+  .slider-range .slider-thumb {
+    @apply block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+}
+
+/* Custom slider styles */
+.slider-thumb-start,
+.slider-thumb-end {
+  @apply absolute top-1/2 -translate-y-1/2 block h-4 w-4 rounded-full border-2 border-primary bg-background transition-colors;
+}
+
+.slider-thumb-start:hover,
+.slider-thumb-end:hover {
+  @apply bg-primary/90;
+}
+
+/* Track styles */
+.slider-track {
+  @apply relative h-2 rounded-full bg-secondary;
+}
+
+.slider-range {
+  @apply absolute h-full bg-primary;
+}
+
+/* Glassmorphism Effects */
+.glass {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-hover:hover {
+  background: rgba(17, 17, 17, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Gradient Backgrounds */
+.gradient-1 {
+  background: linear-gradient(135deg, #ff6b6b 0%, #556270 100%);
+}
+
+.gradient-2 {
+  background: linear-gradient(135deg, #4834d4 0%, #686de0 100%);
+}
+
+.gradient-3 {
+  background: linear-gradient(135deg, #6c5ce7 0%, #a8a4e3 100%);
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Chart Styles */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: rgba(17, 17, 17, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Card hover effects */
+.card-hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
